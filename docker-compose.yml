@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mysql_sync:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: db-teste
+      MYSQL_USER: user_teste
+      MYSQL_PASSWORD: 123
+    volumes:
+      - ./data_sync:/var/lib/mysql
+    ports:
+      - "3306:3306"
